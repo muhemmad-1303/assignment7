@@ -110,7 +110,7 @@
                 const taskId = e.target.getAttribute('data-task-id');
                 if (taskId) {
                     fetch(`/api/tasks/${taskId}/undo`, {
-                        method: 'PUT',
+                        method: 'PUT', 
                         headers: {
                             'Content-Type': 'application/json',
                             'X-CSRF-TOKEN':  document.querySelector('meta[name="csrf-token"]').getAttribute('content'), // Pass the CSRF token
@@ -118,7 +118,7 @@
                     })
                         .then(response => response.json())
                         .then(data => {
-
+                            
                             taskList.innerHTML="";
                             fetchTasks();
                         })
@@ -128,10 +128,10 @@
                 }}
                 else if (e.target.classList.contains('edit-task')) {
                     const taskitem = e.target.closest('.task-item');
-                    const tasktext = taskitem.querySelector('span');
+                    const tasktext = taskitem.querySelector('div');
                     const inputfield = document.createElement('input');
                     inputfield.type = 'text';
-                    inputfield.value = tasktext.textContent;
+                    inputfield.value = tasktext.textContent.replace(/\s+/g, '');
                     const saveButton = document.createElement('button');
                     saveButton.textContent = 'Save';
                     saveButton.classList.add('save');
@@ -163,4 +163,8 @@
                 }
     });
 
+   
+
+
+   
   fetchTasks()
