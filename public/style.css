@@ -1,0 +1,300 @@
+body{
+    overflow: hidden;
+    margin: 0;
+}
+.maintodopage{
+    background-color: #a04870;
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.todocard{
+    color: #d8d7e1 !important;
+    background-color: #1F1D36;
+    width:50vw;
+    height: 70vh;
+    border-radius: 10px;
+    box-shadow: 2px 1px 2px  #1F1D36;
+    overflow: scroll;
+
+}
+.todocard .todocardhead{
+    border-bottom: 1px solid rgb(120, 110, 110);
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    
+}
+.todocard .todocardhead form{
+    
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap:5px;
+    
+
+}
+.todocardbody{
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    padding: 30px;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+.todocard .todocardhead form input[type=text]{
+    outline: 0;
+    border-radius: 20px;
+    width: 80%;
+    padding: 10px;
+    border: 0;
+    
+}
+.todocard .todocardhead form input[type=submit]{
+    outline: 0;
+    border-radius: 20px;
+    border: 0;
+    padding: 10px;
+    background-color: white;
+}
+
+
+
+/* login */
+.mainlogin{
+    background-color: #a04870;
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logincard{
+    background-color: #f3f3f6;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px   #d8d7e1;
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 50px;
+}
+
+.logincard form .inputbox{
+    display: flex;
+    flex-direction: column;
+    gap:1px;
+    margin-bottom:10px;
+}
+
+.logincard form .inputbox input[type=text],.logincard form .inputbox input[type=password]{
+    outline: 0;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px white;
+    padding: 10px;
+}
+.logincard form  input[type=submit]{
+    border-radius: 8px;
+    font-family: "Montserrat", sans-serif;
+    color: #fafafa;
+    font-size: 20px;
+    background-color: #1877f2;;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 0;
+    margin:20px auto;
+    text-align: center;
+}
+a{
+    all: unset;
+}
+#createAccount{
+    background-color: #00a400;
+    border-radius: 8px;
+    font-family: "Montserrat", sans-serif;
+    color: #fafafa;
+    font-size: 16px;
+    display: block;
+    margin: 0px auto 0px auto;
+    width: 80%;
+    padding: 10px;
+    text-align: center;
+    border: 0;
+}
+#logout{
+    position: absolute;
+    top:20px;
+    right: 10px;
+    border-radius: 8px;
+    font-family: "Montserrat", sans-serif;
+    color: #fafafa;
+    font-size: 20px;
+    background-color: #1F1D36;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 0; 
+    
+
+}
+.task-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.strike{
+    text-decoration: line-through;
+}
+
+
+.todocardbody input[type=text]{
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px white;
+    padding: 10px;
+    width: 80%;
+}
+aside button{
+    outline: 0;
+    border: 0;
+    background-color: #1F1D36;
+    border-radius:20px;
+    color: white;
+}
+.save{
+    outline: 0;
+    border-radius: 10px;
+    border: 0;
+    padding: 10px;
+    background-color: white;
+}
+.addTask{
+    outline: 0;
+    border-radius: 20px;
+    border: 0;
+    padding: 10px;
+    background-color: white;
+}
+.registercard {
+    background-color: #f3f3f6;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 8px rgb(109, 106, 106);
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 400px;
+
+}
+
+.registercard form .registerbody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.registercard form .registerbody .inputbox {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+
+}
+
+
+
+.registercard form .registerbody .inputbox input[type=text],.registercard form .registerbody .inputbox input[type=password] {
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px white;
+    padding: 10px;
+}
+
+
+#sub{
+    border-radius: 8px;
+    font-family: "Montserrat", sans-serif;
+    color: #fafafa;
+    font-size: 20px;
+    background-color: #00a400;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 0;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.radiobtn {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.radiobtn .radiobox {
+    border: 0.5px solid #4c726b;
+    outline: 0;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px 5px;
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.radiobtn :nth-child(1),
+.radiobtn :nth-child(2) {
+    margin-right: 10px;
+}
+
+span {
+    margin-top: 2px;
+    color: red;
+    font-size:small;
+}
+
+.registerbody .gendererror {
+    margin-top: -10px;
+}
+a{
+    all: unset;
+}
+.spanbox{
+    color: white;
+    font-size: medium;
+}
+.mainregister{
+    background-color: #a04870;
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#signin{
+    color:#1877f2;
+    text-decoration: underline;
+    font-size: smaller;
+    text-align: center; 
+    cursor: pointer;
+}
