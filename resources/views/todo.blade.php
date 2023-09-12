@@ -22,6 +22,14 @@
         </div>
         </div>
     </div>
+    <div class="modal modalHidden">
+        <div class="modalContent">
+            <div class="text">Are you sure you want to delete</div>
+            <div class="buttons">
+               
+            </div>
+        </div>
+</div> 
 @endsection
 @section('script')
     <script src="{{ asset('js/script.js') }}"></script>

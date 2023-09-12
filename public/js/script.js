@@ -2,8 +2,7 @@
    
     const addTaskForm = document.getElementById('add-task-form');
     const taskList = document.getElementById('task-list');
-    const dltbtn=document.getElementsByClassName('delete-task');
-    console.log(dltbtn);
+    const modal=document.querySelector('.modal');
     addTaskForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -67,24 +66,26 @@
     taskList.addEventListener('click', function (e) {
         if (e.target.classList.contains('delete-task')) {
             const taskId = e.target.getAttribute('data-task-id');
-            if (taskId) {
-                fetch(`/api/tasks/${taskId}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'), // Pass the CSRF token
-                    },
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        
-                        taskList.innerHTML="";
-                        fetchTasks();
-                    })
-                    .catch(error => {
-                        console.error('Error deleting task:', error);
-                    });
-            }
+            const modalParent=document.querySelector('.buttons');
+            modalParent.innerHTML=" ";
+            const dltbtn=document.createElement('button');
+            dltbtn.id='delete';
+            dltbtn.textContent="delete";
+            const canclbtn=document.createElement('button');
+            canclbtn.id='cancel';
+            canclbtn.textContent="cancel";
+            modalParent.append(canclbtn,dltbtn)
+            modal.classList.toggle('modalHidden');
+            dltbtn.addEventListener('click',function(){
+                handledlt(taskId);
+                modal.classList.toggle('modalHidden')
+      
+  })
+  canclbtn.addEventListener('click',function(){
+    modal.classList.toggle('modalHidden');
+    
+})
+            
         }
         else if (e.target.classList.contains('complete-task')) {
             const taskId = e.target.getAttribute('data-task-id');
@@ -164,7 +165,26 @@
     });
 
    
-
+  function handledlt(taskId){
+      if (taskId) {
+    fetch(`/api/tasks/${taskId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'), // Pass the CSRF token
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            taskList.innerHTML="";
+            fetchTasks();
+        })
+        .catch(error => {
+            console.error('Error deleting task:', error);
+        });
+}
+  }
 
    
   fetchTasks()
+  
