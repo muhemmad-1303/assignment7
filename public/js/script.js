@@ -1,5 +1,5 @@
-
-   
+const userId = document.cookie.split('; ').find(row => row.startsWith('userId=')).split('=')[1] || null;
+console.log(userId);
     const addTaskForm = document.getElementById('add-task-form');
     const taskList = document.getElementById('task-list');
     const modal=document.querySelector('.modal');
@@ -25,7 +25,7 @@
                     fetchTasks();
                 })
                 .catch(error => {
-                    console.error('Error adding task:', error);
+                    console.error({"message":"error"});
                 });
         }
     });
@@ -60,7 +60,7 @@
                 });
             })
             .catch(error => {
-                console.error('Error fetching tasks:', error);
+                console.error({"message":"error"});
             });
     }
     taskList.addEventListener('click', function (e) {
@@ -90,7 +90,7 @@
         else if (e.target.classList.contains('complete-task')) {
             const taskId = e.target.getAttribute('data-task-id');
             if (taskId) {
-                fetch(`/api/tasks/${taskId}/complete`, {
+                fetch(`/api/tasks/${taskId}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -104,13 +104,13 @@
                         fetchTasks();
                     })
                     .catch(error => {
-                        console.error('Error completing task:', error);
+                        console.error({"message":"error"});
                     });
             }}
             else if (e.target.classList.contains('undo-task')) {
                 const taskId = e.target.getAttribute('data-task-id');
                 if (taskId) {
-                    fetch(`/api/tasks/${taskId}/undo`, {
+                    fetch(`/api/tasks/${taskId}`, {
                         method: 'PUT', 
                         headers: {
                             'Content-Type': 'application/json',
@@ -124,7 +124,7 @@
                             fetchTasks();
                         })
                         .catch(error => {
-                            console.error('Error completing task:', error);
+                            console.error({"message":"error"});
                         });
                 }}
                 else if (e.target.classList.contains('edit-task')) {
@@ -132,7 +132,7 @@
                     const tasktext = taskitem.querySelector('div');
                     const inputfield = document.createElement('input');
                     inputfield.type = 'text';
-                    inputfield.value = tasktext.textContent.replace(/\s+/g, '');
+                    inputfield.value = tasktext.textContent.trim();
                     const saveButton = document.createElement('button');
                     saveButton.textContent = 'Save';
                     saveButton.classList.add('save');
@@ -143,7 +143,7 @@
                         const updatedTask = inputfield.value;
                         const taskId = e.target.getAttribute('data-task-id');
                         if (taskId && updatedTask) {
-                            fetch(`/api/tasks/${taskId}/edit`, {
+                            fetch(`/api/tasks/${taskId}`, {
                                 method: 'PUT', 
                                 headers: {
                                     'Content-Type': 'application/json',
@@ -157,7 +157,7 @@
                                     fetchTasks();
                                 })
                                 .catch(error => {
-                                    console.error('Error updating task:', error);
+                                    console.error({"message":"error"});
                                 });
                         }
                     });
@@ -180,7 +180,7 @@
             fetchTasks();
         })
         .catch(error => {
-            console.error('Error deleting task:', error);
+            console.error({"message":"error"});
         });
 }
   }
